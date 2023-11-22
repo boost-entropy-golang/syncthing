@@ -121,7 +121,7 @@
     "Do not add it to the ignore list, so this notification may recur.": "Nicht zur Ignorierliste hinzufügen, diese Benachrichtigung kann erneut auftauchen.",
     "Do not restore": "Nicht wiederherstellen",
     "Do not restore all": "Nicht alle wiederherstellen",
-    "Do you want to enable watching for changes for all your folders?": "Möchten Sie die Überwachung von Änderungen für alle Ihre Ordner aktivieren?",
+    "Do you want to enable watching for changes for all your folders?": "Möchten Sie die Überwachung von Änderungen für all Ihre Ordner aktivieren?",
     "Documentation": "Dokumentation",
     "Download Rate": "Downloadrate",
     "Downloaded": "Heruntergeladen",
@@ -304,7 +304,6 @@
     "QR code": "QR-Code",
     "QUIC LAN": "QUIC LAN",
     "QUIC WAN": "QUIC WAN",
-    "QUIC connections are in most cases considered suboptimal": "QUIC-Verbindungen sind in den meisten Fällen suboptimal",
     "Quick guide to supported patterns": "Schnellanleitung zu den unterstützten Mustern",
     "Random": "Zufall",
     "Receive Encrypted": "Empfange verschlüsselt",
@@ -446,7 +445,7 @@
     "The rate limit must be a non-negative number (0: no limit)": "Die Datenratenbegrenzung muss eine nicht-negative Zahl sein (0 = keine Begrenzung)",
     "The remote device has not accepted sharing this folder.": "Dieser geteilte Ordner wurde vom Gerät nicht angenommen.",
     "The remote device has paused this folder.": "Dieser geteilte Ordner ist auf dem Gerät pausiert.",
-    "The rescan interval must be a non-negative number of seconds.": "Das Scanintervall muss eine nicht negative Anzahl (in Sekunden) sein.",
+    "The rescan interval must be a non-negative number of seconds.": "Das Scanintervall muss eine nicht-negative Zahl (in Sekunden) sein.",
     "There are no devices to share this folder with.": "Es sind keine Geräte vorhanden, mit denen dieser Ordner geteilt werden kann.",
     "There are no file versions to restore.": "Es sind keine Dateiversionen zum Wiederherstellen vorhanden.",
     "There are no folders to share with this device.": "Es sind keine Ordner vorhanden, die mit diesem Gerät geteilt werden können.",
@@ -538,10 +537,15 @@
     "modified": "geändert",
     "permit": "erlauben",
     "seconds": "Sekunden",
-    "theme-name-black": "Schwarz",
-    "theme-name-dark": "Dunkel",
-    "theme-name-default": "Standard",
-    "theme-name-light": "Hell",
+    "theme": {
+        "name": {
+            "black": "Schwarz",
+            "dark": "Dunkel",
+            "default": "Standard",
+            "light": "Hell"
+        }
+    },
+    "unknown device": "unbekanntes Gerät",
     "{%device%} wants to share folder \"{%folder%}\".": "{{device}} möchte den Ordner „{{folder}}“ teilen.",
     "{%device%} wants to share folder \"{%folderlabel%}\" ({%folder%}).": "{{device}} möchte den Ordner „{{folderlabel}}“ ({{folder}}) teilen.",
     "{%reintroducer%} might reintroduce this device.": "{{reintroducer}} könnte dieses Gerät wieder einführen."
