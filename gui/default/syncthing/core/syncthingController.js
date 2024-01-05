@@ -103,6 +103,7 @@ angular.module('syncthing.core')
             $http.post(authUrlbase + '/password', {
               username: $scope.login.username,
               password: $scope.login.password,
+              stayLoggedIn: $scope.login.stayLoggedIn,
             }).then(function () {
                 location.reload();
             }).catch(function (response) {
@@ -1460,7 +1461,7 @@ angular.module('syncthing.core')
 
         $scope.friendlyNameFromShort = function (shortID) {
             var matches = Object.keys($scope.devices).filter(function (id) {
-                return id.substr(0, 7) === shortID;
+                return id.substr(0, shortIDStringLength) === shortID;
             });
             if (matches.length !== 1) {
                 return shortID;
@@ -1473,7 +1474,7 @@ angular.module('syncthing.core')
             if (match) {
                 return $scope.deviceName(match);
             }
-            return deviceID.substr(0, 6);
+            return deviceID.substr(0, shortIDStringLength);
         };
 
         $scope.deviceName = function (deviceCfg) {
@@ -1490,7 +1491,7 @@ angular.module('syncthing.core')
             if (typeof deviceID === 'undefined') {
                 return "";
             }
-            return deviceID.substr(0, 6);
+            return deviceID.substr(0, shortIDStringLength);
         };
 
         $scope.thisDeviceName = function () {
@@ -1501,7 +1502,7 @@ angular.module('syncthing.core')
             if (device.name) {
                 return device.name;
             }
-            return device.deviceID.substr(0, 6);
+            return device.deviceID.substr(0, shortIDStringLength);
         };
 
         $scope.showDeviceIdentification = function (deviceCfg) {
@@ -3602,7 +3603,7 @@ angular.module('syncthing.core')
                 return n.match !== "";
             });
         };
-        
+
         // The showModal and hideModal functions are a bandaid for a Bootstrap
         // bug (see https://github.com/twbs/bootstrap/issues/3902) that causes
         // multiple consecutively shown or hidden modals to overlap which leads
