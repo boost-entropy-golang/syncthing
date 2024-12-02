@@ -78,8 +78,10 @@ var (
 		"stun.counterpath.com:3478",
 		"stun.counterpath.net:3478",
 		"stun.ekiga.net:3478",
+		"stun.hitv.com:3478",
 		"stun.ideasip.com:3478",
 		"stun.internetcalls.com:3478",
+		"stun.miwifi.com:3478",
 		"stun.schlund.de:3478",
 		"stun.sipgate.net:10000",
 		"stun.sipgate.net:3478",
@@ -96,6 +98,28 @@ var (
 	errFolderIDDuplicate = errors.New("folder has duplicate ID")
 	errFolderPathEmpty   = errors.New("folder has empty path")
 )
+
+type Configuration struct {
+	Version                  int                   `json:"version" xml:"version,attr"`
+	Folders                  []FolderConfiguration `json:"folders" xml:"folder"`
+	Devices                  []DeviceConfiguration `json:"devices" xml:"device"`
+	GUI                      GUIConfiguration      `json:"gui" xml:"gui"`
+	LDAP                     LDAPConfiguration     `json:"ldap" xml:"ldap"`
+	Options                  OptionsConfiguration  `json:"options" xml:"options"`
+	IgnoredDevices           []ObservedDevice      `json:"remoteIgnoredDevices" xml:"remoteIgnoredDevice"`
+	DeprecatedPendingDevices []ObservedDevice      `json:"-" xml:"pendingDevice,omitempty"` // Deprecated: Do not use.
+	Defaults                 Defaults              `json:"defaults" xml:"defaults"`
+}
+
+type Defaults struct {
+	Folder  FolderConfiguration `json:"folder" xml:"folder"`
+	Device  DeviceConfiguration `json:"device" xml:"device"`
+	Ignores Ignores             `json:"ignores" xml:"ignores"`
+}
+
+type Ignores struct {
+	Lines []string `json:"lines" xml:"line"`
+}
 
 func New(myID protocol.DeviceID) Configuration {
 	var cfg Configuration
